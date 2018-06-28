@@ -30,11 +30,16 @@ public class UserTestCase {
 
 		// Retrieval TestCase
 
-		UserRegister user1 = userDAO.getUser(1);
+		/*UserRegister user1 = userDAO.getUser(1);
 		System.out.println("User Name:" + user1.getUsername());
-		System.out.println("User Description:" + user1.getRole());
+		System.out.println("User Description:" + user1.getRole());*/
 		  
-		 
+		// Deletion TestCase
+		UserRegister user2 = userDAO.getUser(2);
+		userDAO.deleteUser(user2);
+		System.out.println("The User Deleted");
+		  
+		
 
 	}
 }
