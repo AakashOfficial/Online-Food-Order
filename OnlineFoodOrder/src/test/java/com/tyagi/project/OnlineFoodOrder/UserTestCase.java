@@ -35,9 +35,17 @@ public class UserTestCase {
 		System.out.println("User Description:" + user1.getRole());*/
 		  
 		// Deletion TestCase
-		UserRegister user2 = userDAO.getUser(2);
+		/*UserRegister user2 = userDAO.getUser(2);
 		userDAO.deleteUser(user2);
-		System.out.println("The User Deleted");
+		System.out.println("The User Deleted");*/
+		  
+		// Retrieving the Data
+
+		List<UserRegister> list = userDAO.getUserDetails();
+
+		for (UserRegister user3 : list) {
+			System.out.println(user3.getUsername() + ":" + user3.getPassword() + ":" + user3.getRole());
+		}
 		  
 		
 
