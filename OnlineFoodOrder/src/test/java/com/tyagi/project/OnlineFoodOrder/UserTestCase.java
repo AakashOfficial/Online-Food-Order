@@ -49,7 +49,7 @@ public class UserTestCase {
 
 		// Update the User
 		UserRegister user4 = userDAO.getUser(1);
-		user4.setRole("");
+		user4.setRole("Admin");
 		userDAO.insertUpdateUser(user4);
 		System.out.println("The User Updated");
 		 
