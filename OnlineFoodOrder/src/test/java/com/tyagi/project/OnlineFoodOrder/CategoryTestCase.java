@@ -19,13 +19,22 @@ public class CategoryTestCase {
 
 		// insert
 
-		Category category = new Category();
+		/*Category category = new Category();
 		category.setCattype("Vegetarian");
 		category.setCatname("Snacks");
 		category.setCatdesc("Healthy");
 
 		categoryDAO.insertUpdateCategory(category);
-		System.out.println("Category Inserted");
+		System.out.println("Category Inserted");*/
 
+
+		// Retrieval TestCase
+		
+		 Category category=categoryDAO.getCategory(1);
+		 System.out.println("Category Name:"+category.getCatname());
+		 System.out.println("Category Description:"+category.getCatdesc());
+		
+
+				
 	}
 }
