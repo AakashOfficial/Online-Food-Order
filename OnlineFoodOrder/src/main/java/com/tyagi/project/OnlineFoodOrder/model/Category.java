@@ -11,7 +11,7 @@ public class Category {
 	@Id
 	@GeneratedValue
 	int catid;
-	String catname, catdesc;
+	String catname, catdesc,cattype;
 
 	public int getCatid() {
 		return catid;
@@ -36,4 +36,20 @@ public class Category {
 	public void setCatdesc(String catdesc) {
 		this.catdesc = catdesc;
 	}
+
+	public String getCattype() {
+		return cattype;
+	}
+
+	public void setCattype(String cattype) {
+		this.cattype = cattype;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [catid=" + catid + ", catname=" + catname + ", catdesc=" + catdesc + ", cattype=" + cattype
+				+ "]";
+	}
+	
+	
 }
