@@ -20,9 +20,12 @@ public class CategoryTestCase {
 		// insert
 
 		Category category = new Category();
+		category.setCattype("Vegetarian");
+		category.setCatname("Snacks");
+		category.setCatdesc("Healthy");
 
-
-
+		categoryDAO.insertUpdateCategory(category);
+		System.out.println("Category Inserted");
 
 	}
 }
