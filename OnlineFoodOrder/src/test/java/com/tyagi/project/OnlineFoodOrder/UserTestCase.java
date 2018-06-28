@@ -16,7 +16,7 @@ public class UserTestCase {
 
 		UserDAO userDAO = (UserDAO) context.getBean("userDAO");
 
-		UserRegister user = new UserRegister();
+		/*UserRegister user = new UserRegister();
 
 		user.setAddress("Hapur");
 		user.setPassword("Tyagi123");
@@ -26,9 +26,15 @@ public class UserTestCase {
 		user.setMobile(971121);
 
 		userDAO.insertUpdateUser(user);
-		System.out.println("User Inserted");
+		System.out.println("User Inserted");*/
 
-		
+		// Retrieval TestCase
+
+		UserRegister user1 = userDAO.getUser(1);
+		System.out.println("User Name:" + user1.getUsername());
+		System.out.println("User Description:" + user1.getRole());
+		  
+		 
 
 	}
 }
