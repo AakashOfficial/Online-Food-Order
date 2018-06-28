@@ -29,10 +29,18 @@ public class CategoryTestCase {
 
 
 		// Retrieval TestCase
+
+		/*Category category = categoryDAO.getCategory(1);
+		System.out.println("Category Name:" + category.getCatname());
+		System.out.println("Category Description:" + category.getCatdesc());*/
 		
-		 Category category=categoryDAO.getCategory(1);
-		 System.out.println("Category Name:"+category.getCatname());
-		 System.out.println("Category Description:"+category.getCatdesc());
+		// Deletion TestCase
+		
+		  Category category=categoryDAO.getCategory(2);
+		  categoryDAO.deleteCategory(category);
+		  System.out.println("The Category Deleted");
+		 
+
 		
 
 				
