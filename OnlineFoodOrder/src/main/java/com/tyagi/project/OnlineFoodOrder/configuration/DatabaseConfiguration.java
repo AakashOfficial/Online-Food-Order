@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.tyagi.project.OnlineFoodOrder.dao.CategoryDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.UserDAO;
 import com.tyagi.project.OnlineFoodOrder.model.Category;
-import com.tyagi.project.OnlineFoodOrder.model.User;
+import com.tyagi.project.OnlineFoodOrder.model.UserRegister;
 
 @Configuration
 @ComponentScan("com.tyagi.project.OnlineFoodOrder") // Base Package Scan
@@ -59,7 +59,7 @@ public class DatabaseConfiguration {
 		System.out.println("Session Factory Object Creation for Category");
 		
 		// Session Factory Object For User
-		sessionBuilder.addAnnotatedClass(User.class);
+		sessionBuilder.addAnnotatedClass(UserRegister.class);
 		System.out.println("Session Factory Object Creation for User");
 
 		// SessionFactory Object Created
@@ -89,7 +89,7 @@ public class DatabaseConfiguration {
 	// userDAO Object
 	@Autowired
 	@Bean(name = "userDAO")
-	public UsserDAO getUserDAO(SessionFactory sessionFactory) {
+	public UserDAO getUserDAO(SessionFactory sessionFactory) {
 		System.out.println("-- UserDAO Object Creation--");
 		return new UserDAO(sessionFactory);
 	}
