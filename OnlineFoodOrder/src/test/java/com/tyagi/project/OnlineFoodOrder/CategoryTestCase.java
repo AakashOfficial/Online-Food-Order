@@ -35,12 +35,21 @@ public class CategoryTestCase {
 		System.out.println("Category Description:" + category.getCatdesc());*/
 		
 		// Deletion TestCase
-		
-		  Category category=categoryDAO.getCategory(2);
-		  categoryDAO.deleteCategory(category);
-		  System.out.println("The Category Deleted");
+
+		/*Category category = categoryDAO.getCategory(2);
+		categoryDAO.deleteCategory(category);
+		System.out.println("The Category Deleted");*/
 		 
 
+		// Retrieving the Data
+		
+		  List<Category> list=categoryDAO.getCategoryDetails(); for(Category
+		  category:list){
+		  System.out.println(category.getCatid()+":"+category.getCatname()+":"+category
+		  .getCatdesc()); }
+		 
+
+				
 		
 
 				
