@@ -41,13 +41,19 @@ public class UserTestCase {
 		  
 		// Retrieving the Data
 
-		List<UserRegister> list = userDAO.getUserDetails();
+	   /*List<UserRegister> list = userDAO.getUserDetails();
 
 		for (UserRegister user3 : list) {
 			System.out.println(user3.getUsername() + ":" + user3.getPassword() + ":" + user3.getRole());
-		}
+		}*/
+
+		// Update the User
+		UserRegister user4 = userDAO.getUser(1);
+		user4.setRole("");
+		userDAO.insertUpdateUser(user4);
+		System.out.println("The User Updated");
+		 
 		  
 		
-
-	}
+}
 }
