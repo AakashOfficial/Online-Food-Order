@@ -42,14 +42,20 @@ public class CategoryTestCase {
 		 
 
 		// Retrieving the Data
-		
-		  List<Category> list=categoryDAO.getCategoryDetails(); for(Category
-		  category:list){
-		  System.out.println(category.getCatid()+":"+category.getCatname()+":"+category
-		  .getCatdesc()); }
+
+		/*List<Category> list = categoryDAO.getCategoryDetails();
+		for (Category category : list) {
+			System.out.println(category.getCatid() + ":" + category.getCatname() + ":" + category.getCatdesc());
+		}*/
 		 
 
-				
+		// Update the Category
+
+		Category category = categoryDAO.getCategory(1);
+		category.setCatname("Italian");
+		categoryDAO.insertUpdateCategory(category);
+		System.out.println("The Category Updated");
+		 			
 		
 
 				
