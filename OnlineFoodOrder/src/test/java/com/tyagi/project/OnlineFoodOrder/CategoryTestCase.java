@@ -27,19 +27,17 @@ public class CategoryTestCase {
 		categoryDAO.insertUpdateCategory(category);
 		System.out.println("Category Inserted");*/
 
-
 		// Retrieval TestCase
 
 		/*Category category = categoryDAO.getCategory(1);
 		System.out.println("Category Name:" + category.getCatname());
 		System.out.println("Category Description:" + category.getCatdesc());*/
-		
+
 		// Deletion TestCase
 
 		/*Category category = categoryDAO.getCategory(2);
 		categoryDAO.deleteCategory(category);
 		System.out.println("The Category Deleted");*/
-		 
 
 		// Retrieving the Data
 
@@ -47,7 +45,6 @@ public class CategoryTestCase {
 		for (Category category : list) {
 			System.out.println(category.getCatid() + ":" + category.getCatname() + ":" + category.getCatdesc());
 		}*/
-		 
 
 		// Update the Category
 
@@ -55,9 +52,6 @@ public class CategoryTestCase {
 		category.setCatname("Italian");
 		categoryDAO.insertUpdateCategory(category);
 		System.out.println("The Category Updated");
-		 			
-		
 
-				
 	}
 }
