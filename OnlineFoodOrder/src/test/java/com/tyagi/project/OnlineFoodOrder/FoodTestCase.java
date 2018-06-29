@@ -15,14 +15,14 @@ public class FoodTestCase {
 
 		FoodDAO foodDAO = (FoodDAO) context.getBean("foodDAO");
 
-		Food food = new Food();
+		/*Food food = new Food();
 
 		food.setFoodname("Pizza");
 		food.setQuantity(3);
 		food.setFooddesc("Delicious");
 
 		foodDAO.insertUpdateFood(food);
-		System.out.println("food Inserted");
+		System.out.println("food Inserted");*/
 
 		
 

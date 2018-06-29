@@ -16,7 +16,7 @@ public class Food {
 	@GeneratedValue
 	int foodid;
 
-	String foodname;
+	String foodname, catname;
 	int catid;
 	int quantity;
 	int price;
@@ -79,6 +79,14 @@ public class Food {
 
 	public void setPimage(MultipartFile pimage) {
 		this.pimage = pimage;
+	}
+
+	public String getCatname() {
+		return catname;
+	}
+
+	public void setCatname(String catname) {
+		this.catname = catname;
 	}
 
 }
