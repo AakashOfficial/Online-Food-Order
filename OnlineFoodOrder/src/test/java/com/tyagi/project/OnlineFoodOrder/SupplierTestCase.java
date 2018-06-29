@@ -39,14 +39,20 @@ public class SupplierTestCase {
 
 		// Retrieving the Data
 
-		List<Supplier> list = supplierDAO.getSupplierDetails();
+		/*List<Supplier> list = supplierDAO.getSupplierDetails();
 
 		for (Supplier supplier1 : list) {
 			System.out
 					.println(supplier1.getSuppid() + ":" + supplier1.getSuppname() + ":" + supplier1.getSuppaddress());
-		}
+		}*/
 		 
+		// Update the Supplier
 
+		Supplier supplier = supplierDAO.getSupplier(1);
+		supplier.setSuppname("Deepak");
+		supplierDAO.insertUpdateSupplier(supplier);
+		System.out.println("The Supplier Updated");
+		 
 						
 
 	}
