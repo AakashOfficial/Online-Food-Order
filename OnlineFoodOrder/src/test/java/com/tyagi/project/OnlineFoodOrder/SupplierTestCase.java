@@ -27,12 +27,18 @@ public class SupplierTestCase {
 
 		// Retrieval TestCase
 
-		Supplier supplier = supplierDAO.getSupplier(1);
+		/*Supplier supplier = supplierDAO.getSupplier(1);
 		System.out.println("Supplier Name:" + supplier.getSuppname());
-		System.out.println("Supplier Description:" + supplier.getSuppaddress());
+		System.out.println("Supplier Description:" + supplier.getSuppaddress());*/
+		 
+		// Deletion TestCase
+
+		Supplier supplier = supplierDAO.getSupplier(2);
+		supplierDAO.deleteSupplier(supplier);
+		System.out.println("The Supplier Deleted");
 		 
 
-		
+				
 
 	}
 
