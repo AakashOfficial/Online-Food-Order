@@ -59,18 +59,5 @@ public class UserController {
 		return "Login";
 	}
 
-	@RequestMapping("/perform_logout")
-	public class SignOutController {
-
-		@RequestMapping(method = RequestMethod.GET)
-		public String logout(HttpSession session) {
-			session.invalidate();
-			return "Home";
-		}
-	}
-
-	@RequestMapping("/LoginFailure")
-	public String showLoginFailure() {
-		return "LoginFailure";
-	}
+	
 }
