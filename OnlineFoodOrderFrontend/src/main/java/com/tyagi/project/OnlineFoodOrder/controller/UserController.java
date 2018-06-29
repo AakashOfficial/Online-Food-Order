@@ -69,5 +69,8 @@ public class UserController {
 		}
 	}
 
-	
+	@RequestMapping("/LoginFailure")
+	public String showLoginFailure() {
+		return "LoginFailure";
+	}
 }
