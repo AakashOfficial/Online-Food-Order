@@ -40,13 +40,17 @@ public class FoodTestCase {
 
 		// Retrieving the Data
 
-		List<Food> list = foodDAO.getFoodDetails();
+		/*List<Food> list = foodDAO.getFoodDetails();
 
 		for (Food food : list) {
 			System.out.println(food.getCatid() + ":" + food.getCatname() + ":" + food.getFooddesc());
-		}
-		 
-		
+		}*/
+
+		// Update The Food
+		Food food = foodDAO.getFood(1);
+		food.setCatname("Italian");
+		foodDAO.insertUpdateFood(food);
+		System.out.println("The Food Updated");
 		 
 		 
 
