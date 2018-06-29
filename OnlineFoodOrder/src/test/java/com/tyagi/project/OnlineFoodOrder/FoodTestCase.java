@@ -24,7 +24,14 @@ public class FoodTestCase {
 		foodDAO.insertUpdateFood(food);
 		System.out.println("food Inserted");*/
 
-		
+		// Retrieval TestCase
+
+		Food food = foodDAO.getFood(2);
+		System.out.println("Food Name:" + food.getFoodname());
+		System.out.println("Category Name:" + food.getCatname());
+		System.out.println("Food Description:" + food.getFooddesc());
+				  
+				
 
 	}
 }
