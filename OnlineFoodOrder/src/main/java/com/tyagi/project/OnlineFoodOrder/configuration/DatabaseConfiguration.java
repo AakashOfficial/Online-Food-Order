@@ -15,8 +15,10 @@ import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.tyagi.project.OnlineFoodOrder.dao.CategoryDAO;
+import com.tyagi.project.OnlineFoodOrder.dao.FoodDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.UserDAO;
 import com.tyagi.project.OnlineFoodOrder.model.Category;
+import com.tyagi.project.OnlineFoodOrder.model.Food;
 import com.tyagi.project.OnlineFoodOrder.model.UserRegister;
 
 @Configuration
@@ -61,6 +63,10 @@ public class DatabaseConfiguration {
 		// Session Factory Object For User
 		sessionBuilder.addAnnotatedClass(UserRegister.class);
 		System.out.println("Session Factory Object Creation for User");
+		
+		// Session Factory Object For Food
+		sessionBuilder.addAnnotatedClass(Food.class);
+		System.out.println("Session Factory Object Creation for Food");
 
 		// SessionFactory Object Created
 		SessionFactory sessionFactory = sessionBuilder.buildSessionFactory();
@@ -92,5 +98,13 @@ public class DatabaseConfiguration {
 	public UserDAO getUserDAO(SessionFactory sessionFactory) {
 		System.out.println("-- UserDAO Object Creation--");
 		return new UserDAO(sessionFactory);
+	}
+	
+	// foodDAO Object
+	@Autowired
+	@Bean(name = "foodDAO")
+	public FoodDAO getFoodDAO(SessionFactory sessionFactory) {
+		System.out.println("-- FoodDAO Object Creation--");
+		return new FoodDAO(sessionFactory);
 	}
 }
