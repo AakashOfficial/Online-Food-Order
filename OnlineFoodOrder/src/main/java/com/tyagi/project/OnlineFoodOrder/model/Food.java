@@ -17,7 +17,7 @@ public class Food {
 	int foodid;
 
 	String foodname, catname;
-	int catid;
+	int catid, suppid;
 	int quantity;
 	int price;
 	String fooddesc;
@@ -87,6 +87,14 @@ public class Food {
 
 	public void setCatname(String catname) {
 		this.catname = catname;
+	}
+
+	public int getSuppid() {
+		return suppid;
+	}
+
+	public void setSuppid(int suppid) {
+		this.suppid = suppid;
 	}
 
 }
