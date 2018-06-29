@@ -15,6 +15,16 @@ public class SupplierTestCase {
 		context.scan("com.tyagi.project.OnlineFoodOrder");
 		context.refresh();
 
+		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
+
+		Supplier supplier = new Supplier();
+
+		supplier.setSuppname("Aman");
+		supplier.setSuppaddress("Ghaziabad");
+
+		supplierDAO.insertUpdateSupplier(supplier);
+		System.out.println("Supplier Inserted");
+
 		
 
 	}
