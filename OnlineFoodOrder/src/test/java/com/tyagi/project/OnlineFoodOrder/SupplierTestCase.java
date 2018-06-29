@@ -17,13 +17,20 @@ public class SupplierTestCase {
 
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 
-		Supplier supplier = new Supplier();
+		/*Supplier supplier = new Supplier();
 
 		supplier.setSuppname("Aman");
 		supplier.setSuppaddress("Ghaziabad");
 
 		supplierDAO.insertUpdateSupplier(supplier);
-		System.out.println("Supplier Inserted");
+		System.out.println("Supplier Inserted");*/
+
+		// Retrieval TestCase
+
+		Supplier supplier = supplierDAO.getSupplier(1);
+		System.out.println("Supplier Name:" + supplier.getSuppname());
+		System.out.println("Supplier Description:" + supplier.getSuppaddress());
+		 
 
 		
 
