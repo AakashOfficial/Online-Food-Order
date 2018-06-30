@@ -9,5 +9,7 @@
 <body>
 
 Welcome User
+
+<a href="perform_logout">Logout</a>
 </body>
 </html>

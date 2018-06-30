@@ -9,5 +9,6 @@
 <body>
 
 Welcome Admin
+<a href="perform_logout">Logout</a>
 </body>
 </html>
