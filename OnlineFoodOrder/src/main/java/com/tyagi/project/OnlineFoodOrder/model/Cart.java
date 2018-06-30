@@ -11,8 +11,8 @@ public class Cart {
 	@Id
 	@GeneratedValue
 	int citemid;
-	int cartid, prodid, quantity, price;
-	String username, prodname, status;
+	int cartid, foodid, quantity, price;
+	String username, foodname, status;
 
 	public int getCitemid() {
 		return citemid;
@@ -28,14 +28,6 @@ public class Cart {
 
 	public void setCartid(int cartid) {
 		this.cartid = cartid;
-	}
-
-	public int getProdid() {
-		return prodid;
-	}
-
-	public void setProdid(int prodid) {
-		this.prodid = prodid;
 	}
 
 	public int getQuantity() {
@@ -62,14 +54,6 @@ public class Cart {
 		this.username = username;
 	}
 
-	public String getProdname() {
-		return prodname;
-	}
-
-	public void setProdname(String prodname) {
-		this.prodname = prodname;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -77,4 +61,21 @@ public class Cart {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
+	public int getFoodid() {
+		return foodid;
+	}
+
+	public void setFoodid(int foodid) {
+		this.foodid = foodid;
+	}
+
+	public String getFoodname() {
+		return foodname;
+	}
+
+	public void setFoodname(String foodname) {
+		this.foodname = foodname;
+	}
+	
 }
