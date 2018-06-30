@@ -12,13 +12,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.tyagi.project.OnlineFoodOrder.dao.CartDAO;
+import com.tyagi.project.OnlineFoodOrder.dao.FoodDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.UserDAO;
+import com.tyagi.project.OnlineFoodOrder.model.Food;
 import com.tyagi.project.OnlineFoodOrder.model.UserRegister;
 
 @Controller
 public class UserController {
 	@Autowired
 	UserDAO userDAO;
+	@Autowired
+	FoodDAO productDAO;
+	@Autowired
+	CartDAO cartDAO;
 
 	@RequestMapping("/login_success")
 	public String loginSuccess(HttpSession session, Model m) {
@@ -31,15 +38,19 @@ public class UserController {
 		session.setAttribute("loggedIn", loggedIn);
 
 		// Retrieving the role
-		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) SecurityContextHolder.getContext()
+				.getAuthentication().getAuthorities();
 
 		for (GrantedAuthority role : authorities) {
 			System.out.println("Role:" + role.getAuthority() + "UserName:" + username);
 			if (role.getAuthority().equals("ROLE_ADMIN")) {
-
+				List<Food> prodlist = productDAO.getFoodDetails();
+				m.addAttribute("prodlist", prodlist);
 				page = "AdminHome";
 			} else {
-
+				@SuppressWarnings("rawtypes")
+				List<Food> prodlist = productDAO.getFoodDetails();
+				m.addAttribute("prodlist", prodlist);
 				page = "UserHome";
 			}
 			System.out.println("Login Successfull");
