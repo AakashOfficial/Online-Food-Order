@@ -14,10 +14,12 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.tyagi.project.OnlineFoodOrder.dao.CartDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.CategoryDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.FoodDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.SupplierDAO;
 import com.tyagi.project.OnlineFoodOrder.dao.UserDAO;
+import com.tyagi.project.OnlineFoodOrder.model.Cart;
 import com.tyagi.project.OnlineFoodOrder.model.Category;
 import com.tyagi.project.OnlineFoodOrder.model.Food;
 import com.tyagi.project.OnlineFoodOrder.model.Supplier;
@@ -73,6 +75,10 @@ public class DatabaseConfiguration {
 		// Session Factory Object For Supplier
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		System.out.println("Session Factory Object Creation for Supplier");
+		
+		// Session Factory Object For Cart
+		sessionBuilder.addAnnotatedClass(Cart.class);
+		System.out.println("Session Factory Object Creation for Cart");
 
 		// SessionFactory Object Created
 		SessionFactory sessionFactory = sessionBuilder.buildSessionFactory();
@@ -115,10 +121,18 @@ public class DatabaseConfiguration {
 	}
 	
 	// supplierDAO Object
-		@Autowired
-		@Bean(name = "supplierDAO")
-		public SupplierDAO getSupplierDAO(SessionFactory sessionFactory) {
-			System.out.println("-- SupplierDAO Object Creation--");
-			return new SupplierDAO(sessionFactory);
-		}
+	@Autowired
+	@Bean(name = "supplierDAO")
+	public SupplierDAO getSupplierDAO(SessionFactory sessionFactory) {
+		System.out.println("-- SupplierDAO Object Creation--");
+		return new SupplierDAO(sessionFactory);
+	}
+	
+	// cartDAO Object
+	@Autowired
+	@Bean(name = "cartDAO")
+	public CartDAO getCartDAO(SessionFactory sessionFactory) {
+		System.out.println("-- CartDAO Object Creation--");
+		return new CartDAO(sessionFactory);
+	}
 }
