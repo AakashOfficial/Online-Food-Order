@@ -1,7 +1,6 @@
 package com.tyagi.project.OnlineFoodOrder;
 
 import java.util.List;
-
 import javax.naming.Context;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,14 +16,14 @@ public class FoodTestCase {
 
 		FoodDAO foodDAO = (FoodDAO) context.getBean("foodDAO");
 
-		/*Food food = new Food();
+		Food food = new Food();
 
 		food.setFoodname("Pizza");
 		food.setQuantity(3);
 		food.setFooddesc("Delicious");
 
 		foodDAO.insertUpdateFood(food);
-		System.out.println("food Inserted");*/
+		System.out.println("food Inserted");
 
 		// Retrieval TestCase
 
@@ -47,10 +46,10 @@ public class FoodTestCase {
 		}*/
 
 		// Update The Food
-		Food food = foodDAO.getFood(1);
+		/*Food food = foodDAO.getFood(1);
 		food.setCatname("Italian");
 		foodDAO.insertUpdateFood(food);
-		System.out.println("The Food Updated");
+		System.out.println("The Food Updated");*/
 		 
 		 
 

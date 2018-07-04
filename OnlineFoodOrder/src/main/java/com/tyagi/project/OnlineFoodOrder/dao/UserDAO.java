@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.tyagi.project.OnlineFoodOrder.model.UserRegister;
 
-@Repository("UserDAO")
+@Repository("userDAO")
 public class UserDAO {
 	@Autowired
 	SessionFactory sessionFactory;

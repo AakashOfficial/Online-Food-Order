@@ -2,11 +2,10 @@ package com.tyagi.project.OnlineFoodOrder;
 
 import java.util.List;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import javax.naming.Context;
 
 import com.tyagi.project.OnlineFoodOrder.dao.SupplierDAO;
 import com.tyagi.project.OnlineFoodOrder.model.Supplier;
-
-import javax.naming.Context;
 
 public class SupplierTestCase {
 
@@ -17,13 +16,13 @@ public class SupplierTestCase {
 
 		SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
 
-		/*Supplier supplier = new Supplier();
+		Supplier supplier = new Supplier();
 
 		supplier.setSuppname("Aman");
 		supplier.setSuppaddress("Ghaziabad");
 
 		supplierDAO.insertUpdateSupplier(supplier);
-		System.out.println("Supplier Inserted");*/
+		System.out.println("Supplier Inserted");
 
 		// Retrieval TestCase
 
@@ -48,10 +47,10 @@ public class SupplierTestCase {
 		 
 		// Update the Supplier
 
-		Supplier supplier = supplierDAO.getSupplier(1);
+		/*Supplier supplier = supplierDAO.getSupplier(1);
 		supplier.setSuppname("Deepak");
 		supplierDAO.insertUpdateSupplier(supplier);
-		System.out.println("The Supplier Updated");
+		System.out.println("The Supplier Updated");*/
 		 
 						
 

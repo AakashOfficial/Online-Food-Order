@@ -19,13 +19,13 @@ public class CategoryTestCase {
 
 		// insert
 
-		/*Category category = new Category();
+		Category category = new Category();
 		category.setCattype("Vegetarian");
 		category.setCatname("Snacks");
 		category.setCatdesc("Healthy");
 
 		categoryDAO.insertUpdateCategory(category);
-		System.out.println("Category Inserted");*/
+		System.out.println("Category Inserted");
 
 		// Retrieval TestCase
 
@@ -48,10 +48,10 @@ public class CategoryTestCase {
 
 		// Update the Category
 
-		Category category = categoryDAO.getCategory(1);
+		/*Category category = categoryDAO.getCategory(1);
 		category.setCatname("Italian");
 		categoryDAO.insertUpdateCategory(category);
-		System.out.println("The Category Updated");
+		System.out.println("The Category Updated");*/
 
 	}
 }

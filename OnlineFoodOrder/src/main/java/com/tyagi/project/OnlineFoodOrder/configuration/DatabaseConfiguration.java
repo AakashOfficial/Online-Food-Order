@@ -1,9 +1,7 @@
 package com.tyagi.project.OnlineFoodOrder.configuration;
 
 import java.util.Properties;
-
 import javax.sql.DataSource;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -35,8 +33,10 @@ public class DatabaseConfiguration {
 	public DataSource getH2DataSource() {
 		System.out.println("Starting of the method getH2DataSource");
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
+		System.out.println("Driver Loading");
 		dataSource.setDriverClassName("org.h2.Driver");
-		dataSource.setUrl("jdbc:h2:tcp://localhost/~/OnlineFoodOrder");
+		System.out.println("Driver Loaded");
+		dataSource.setUrl("jdbc:h2:tcp://localhost/~/OnlineFoodOrderDatabase");
 		dataSource.setUsername("sa");
 		dataSource.setPassword("test");
 		System.out.println("Data Source Creation");
@@ -60,22 +60,22 @@ public class DatabaseConfiguration {
 		sessionBuilder.addProperties(prop);
 		System.out.println("---Factory Builder Object Created---");
 
-		// Session Factory Object For Category
-		sessionBuilder.addAnnotatedClass(Category.class);
-		System.out.println("Session Factory Object Creation for Category");
-		
 		// Session Factory Object For User
 		sessionBuilder.addAnnotatedClass(UserRegister.class);
 		System.out.println("Session Factory Object Creation for User");
-		
+
+		// Session Factory Object For Category
+		sessionBuilder.addAnnotatedClass(Category.class);
+		System.out.println("Session Factory Object Creation for Category");
+
 		// Session Factory Object For Food
 		sessionBuilder.addAnnotatedClass(Food.class);
 		System.out.println("Session Factory Object Creation for Food");
-		
+
 		// Session Factory Object For Supplier
 		sessionBuilder.addAnnotatedClass(Supplier.class);
 		System.out.println("Session Factory Object Creation for Supplier");
-		
+
 		// Session Factory Object For Cart
 		sessionBuilder.addAnnotatedClass(Cart.class);
 		System.out.println("Session Factory Object Creation for Cart");
@@ -96,14 +96,6 @@ public class DatabaseConfiguration {
 		return transactionManager;
 	}
 
-	// categoryDAO Object
-	@Autowired
-	@Bean(name = "categoryDAO")
-	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory) {
-		System.out.println("-- CategoryDAO Object Creation--");
-		return new CategoryDAO(sessionFactory);
-	}
-
 	// userDAO Object
 	@Autowired
 	@Bean(name = "userDAO")
@@ -111,28 +103,37 @@ public class DatabaseConfiguration {
 		System.out.println("-- UserDAO Object Creation--");
 		return new UserDAO(sessionFactory);
 	}
-	
-	// foodDAO Object
+
+	// categoryDAO object
+	@Autowired
+	@Bean(name = "categoryDAO")
+	public CategoryDAO getCategoryDAO(SessionFactory sessionFactory) {
+		System.out.println("-- CategoryDAO Object Creation--");
+		return new CategoryDAO(sessionFactory);
+	}
+
+	// foodDAO object
 	@Autowired
 	@Bean(name = "foodDAO")
-	public FoodDAO getFoodDAO(SessionFactory sessionFactory) {
+	public FoodDAO getProductDAO(SessionFactory sessionFactory) {
 		System.out.println("-- FoodDAO Object Creation--");
 		return new FoodDAO(sessionFactory);
 	}
-	
-	// supplierDAO Object
+
+	// supplierDAO object
 	@Autowired
 	@Bean(name = "supplierDAO")
 	public SupplierDAO getSupplierDAO(SessionFactory sessionFactory) {
 		System.out.println("-- SupplierDAO Object Creation--");
 		return new SupplierDAO(sessionFactory);
 	}
-	
-	// cartDAO Object
+
+	// cartDAO object
 	@Autowired
 	@Bean(name = "cartDAO")
 	public CartDAO getCartDAO(SessionFactory sessionFactory) {
 		System.out.println("-- CartDAO Object Creation--");
 		return new CartDAO(sessionFactory);
 	}
+
 }
