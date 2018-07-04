@@ -23,7 +23,7 @@ public class UserController {
 	@Autowired
 	UserDAO userDAO;
 	@Autowired
-	FoodDAO productDAO;
+	FoodDAO foodDAO;
 	@Autowired
 	CartDAO cartDAO;
 
@@ -44,12 +44,12 @@ public class UserController {
 		for (GrantedAuthority role : authorities) {
 			System.out.println("Role:" + role.getAuthority() + "UserName:" + username);
 			if (role.getAuthority().equals("ROLE_ADMIN")) {
-				List<Food> prodlist = productDAO.getFoodDetails();
+				List<Food> prodlist = foodDAO.getFoodDetails();
 				m.addAttribute("prodlist", prodlist);
 				page = "AdminHome";
 			} else {
 				@SuppressWarnings("rawtypes")
-				List<Food> prodlist = productDAO.getFoodDetails();
+				List<Food> prodlist = foodDAO.getFoodDetails();
 				m.addAttribute("prodlist", prodlist);
 				page = "UserHome";
 			}
