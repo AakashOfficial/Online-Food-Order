@@ -7,7 +7,6 @@
 <title>Login</title>
 </head>
 <body>
-
 <%@include file="Login.jsp" %>
 
 </body>

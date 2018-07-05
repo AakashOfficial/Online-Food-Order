@@ -42,8 +42,13 @@ public class PagesController {
 	}
 	
 	@RequestMapping("/Register")
-	public String showregister() {
+	public String showRegister() {
 		return "Register";
+	}
+	
+	@RequestMapping("/OrderComplte")
+	public String showOrderComplete() {
+		return "OrderComplete";
 	}
 
 }

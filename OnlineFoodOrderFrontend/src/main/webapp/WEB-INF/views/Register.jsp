@@ -7,7 +7,6 @@
 <title>Registration Page</title>
 </head>
 <body>
-
 	<h5>Register Here</h5>
 	<form action="InsertUserRegister" method="post">
 

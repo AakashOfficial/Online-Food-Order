@@ -7,7 +7,6 @@
 <title>User Home Page</title>
 </head>
 <body>
-
 Welcome User
 
 <a href="perform_logout">Logout</a>
