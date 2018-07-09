@@ -36,4 +36,19 @@ public class MyConnection {
 			e.printStackTrace();
 		}
 	}
+ 
+ public static void CloseT(Connection con,Statement stmt)
+	{
+		try{
+			
+			if(con!=null)
+				con.close();
+			if(stmt!=null)
+				stmt.close();
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 }
