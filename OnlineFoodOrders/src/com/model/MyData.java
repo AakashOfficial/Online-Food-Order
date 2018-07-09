@@ -4,58 +4,23 @@ import java.io.Serializable;
 
 public class MyData implements Serializable {
 
-	private String system_id;
-	private String roll_no;
-	private String role;
-	private String name;
-	private String course;
-	private String branch;
-	private String section;
+	private String user_id;
+	private String password;
 	private String address;
-	private String email;
-	private String date_of_birth;
+	private String mobile_no;
+	private String email_id;
 	
-	public String getSystem_id() {
-		return system_id;
+	public String getUser_id() {
+		return user_id;
 	}
-	public void setSystem_id(String system_id) {
-		this.system_id = system_id;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
-	public String getRoll_no() {
-		return roll_no;
+	public String getPassword() {
+		return password;
 	}
-	public void setRoll_no(String roll_no) {
-		this.roll_no = roll_no;
-	}
-	public String getRole() {
-		return role;
-	}
-	public void setRole(String role) {
-		this.role = role;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getCourse() {
-		return course;
-	}
-	public void setCourse(String course) {
-		this.course = course;
-	}
-	public String getBranch() {
-		return branch;
-	}
-	public void setBranch(String branch) {
-		this.branch = branch;
-	}
-	public String getSection() {
-		return section;
-	}
-	public void setSection(String section) {
-		this.section = section;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getAddress() {
 		return address;
@@ -63,23 +28,23 @@ public class MyData implements Serializable {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getEmail() {
-		return email;
+	public String getMobile_no() {
+		return mobile_no;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setMobile_no(String mobile_no) {
+		this.mobile_no = mobile_no;
 	}
-	public String getDate_of_birth() {
-		return date_of_birth;
+	public String getEmail_id() {
+		return email_id;
 	}
-	public void setDate_of_birth(String date_of_birth) {
-		this.date_of_birth = date_of_birth;
+	public void setEmail_id(String email_id) {
+		this.email_id = email_id;
 	}
+	
 	@Override
 	public String toString() {
-		return "MyData [system_id=" + system_id + ", roll_no=" + roll_no + ", role=" + role + ", name=" + name
-				+ ", course=" + course + ", branch=" + branch + ", section=" + section + ", address=" + address
-				+ ", email=" + email + ", date_of_birth=" + date_of_birth + "]";
+		return "MyData [user_id=" + user_id + ", password=" + password + ", address=" + address + ", mobile_no="
+				+ mobile_no + ", email_id=" + email_id + "]";
 	}
-
+		
 }
