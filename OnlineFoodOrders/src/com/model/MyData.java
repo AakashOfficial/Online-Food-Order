@@ -9,7 +9,8 @@ public class MyData implements Serializable {
 	private String address;
 	private String mobile_no;
 	private String email_id;
-	
+	private String role;
+		
 	public String getUser_id() {
 		return user_id;
 	}
