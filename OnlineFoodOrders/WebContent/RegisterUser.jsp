@@ -15,7 +15,7 @@
 		<form action="registerUser" method="POST">
 			User ID : <input type="text" name="user_id" placeholder="Enter User Id"> 
 			<br>
-			Password : <input type="password" name="passwoord" placeholder="Enter Password">
+			Password : <input type="password" name="password" placeholder="Enter Password">
 			<br>
 			Name : <input type="text" name="name" placeholder="Enter Your Name Here">
 			<br>

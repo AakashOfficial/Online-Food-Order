@@ -42,7 +42,7 @@ public class RegisterServlet  extends HttpServlet {
 			Statement stmt2 = con.createStatement();
 			int i = stmt.executeUpdate("insert into user values('"+userid+"','"+password+"','"+name+"','"+address+"','"+mobile_no+"','"+email+"','"+role+"')");
 			int j = stmt2.executeUpdate("insert into verification values('"+userid+"','"+password+"','"+role+"')");
-			if(i==1 && j==1) {
+			if(i>=1 && j>=1) {
 				System.out.println("User Is Registered with User ID : " + userid + "  and Username is : " + name);
 				RequestDispatcher rd =req.getRequestDispatcher("RegisterUser.jsp");
 				rd.include(req, res);
