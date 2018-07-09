@@ -1,0 +1,5 @@
+create table user(user_id varchar(30),password varchar(30),name varchar(30),address varchar(30),mobile_no varchar(30),email_id varchar(30),role varchar(10));
+
+
+create table verification(user_id varchar(30),password varchar(30),role varchar(10));
+insert into verification values('1','1','Admin');

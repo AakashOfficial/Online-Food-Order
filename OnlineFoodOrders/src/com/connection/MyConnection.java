@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class MyConnection {
  private static String driverName="org.h2.Driver";
- private static String dbUrl="jdbc:h2:tcp://localhost/~/StudentInformation";
+ private static String dbUrl="jdbc:h2:tcp://localhost/~/OnlineFoodOrderServlet";
  private static String userName="sa";
  private static String dbPass="test";
  
