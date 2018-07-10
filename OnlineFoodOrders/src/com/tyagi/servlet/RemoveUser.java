@@ -16,8 +16,8 @@ import com.connection.MyConnection;
 @WebServlet("\removeUser")
 public class RemoveUser {
 
- Connection con = null;
- Statement stmt,stmt2,stmt3,stmt4;
+    Connection con = null;
+    Statement stmt,stmt2,stmt3,stmt4;
 	
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
@@ -43,7 +43,7 @@ public class RemoveUser {
 					
 					if(i > 0 && j > 0) {
 						System.out.println("User Is Deleted with User ID : " + user_id);
-						RequestDispatcher rd = req.getRequestDispatcher("RemoveUser.jsp");
+						RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
 						rd.include(req, res);
 						out.print("<script type='text/javascript'>alert('User Is Deleted');</script>");
 					}else {
@@ -58,7 +58,7 @@ public class RemoveUser {
 					
 					if(k > 0) {
 						System.out.println("User Is Deleted with User ID : " + user_id);
-						RequestDispatcher rd = req.getRequestDispatcher("RemoveUser.jsp");
+						RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
 						rd.include(req, res);
 						out.print("<script type='text/javascript'>alert('User Is Deleted');</script>");
 					}else {
@@ -68,11 +68,15 @@ public class RemoveUser {
 						out.print("<script type='text/javascript'>alert('User Not Deleted. Please Try Again');</script>");
 					}
 				}
-			}	
-			}catch(Exception e) {
-				e.printStackTrace();
-			
 			}
-		
+				stmt.close();
+				stmt2.close();
+				stmt3.close();
+				stmt4.close();
+				con.close();
+				rs.close();				
+			}catch(Exception e) {
+				e.printStackTrace();		
+			}		
 	}
 }

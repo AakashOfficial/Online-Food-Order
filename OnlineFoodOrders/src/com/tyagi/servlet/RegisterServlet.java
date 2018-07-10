@@ -3,9 +3,7 @@ package com.tyagi.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.Statement;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,13 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.connection.MyConnection;
-import com.model.MyData;
 
 @WebServlet("/registerUser")
 public class RegisterServlet  extends HttpServlet {
 
-	Connection con=null;
- MyData m = new MyData();
+  Connection con=null;
  
   public void doPost(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException {
 	  res.setContentType("text/html");
@@ -34,7 +30,6 @@ public class RegisterServlet  extends HttpServlet {
 	  String email = req.getParameter("email_id");
 	  String role = "User";
 		try {
-
 			con = MyConnection.getCon();
 			System.out.println("Connection Created");
 
@@ -52,11 +47,11 @@ public class RegisterServlet  extends HttpServlet {
 				rd.include(req, res);
 				out.print("User Not Registered Successfully. Please Try Again");
 			}
-			
-			MyConnection.CloseT(con, stmt);
+			con.close();
+			stmt.close();
+			stmt2.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 }

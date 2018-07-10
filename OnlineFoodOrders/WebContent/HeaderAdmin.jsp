@@ -8,5 +8,6 @@
 </head>
 <body>
 <a href="RemoveUser.jsp">Remove A User</a>
+<a href="RegisterAdminUser.jsp" >Register Other Admin</a>
 </body>
 </html>
