@@ -8,13 +8,14 @@ import java.sql.Statement;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.connection.MyConnection;
 
-@WebServlet("\removeUser")
-public class RemoveUser {
+@WebServlet("/removeUser")
+public class RemoveUser extends HttpServlet {
 
     Connection con = null;
     Statement stmt,stmt2,stmt3,stmt4;
@@ -30,18 +31,20 @@ public class RemoveUser {
 			System.out.println("Connection Created");
 			
 			stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from user where user_id = '" + user_id + "' ");
+			ResultSet rs = stmt.executeQuery("select * from verification where user_id = '" + user_id + "' ");
+			System.out.println("Checking User In Database");
 			while (rs.next()) {
 				user_id_output = rs.getString(1);
 				role = rs.getString(3);
 				
-				if( (user_id_output.equals(user_id) ) && (role.equals("user") || role.equals("User") || role.equals("USER") )  ){
+				if( user_id_output.equals(user_id)  && role.equals("User")   ){
 					stmt2 = con.createStatement();
 					int i = stmt2.executeUpdate("delete from user where user_id = '"+user_id+"' ");
 					stmt3 = con.createStatement();
 					int j = stmt3.executeUpdate("delete from verification where user_id = '"+user_id+"' ");
 					
 					if(i > 0 && j > 0) {
+						
 						System.out.println("User Is Deleted with User ID : " + user_id);
 						RequestDispatcher rd = req.getRequestDispatcher("Login.jsp");
 						rd.include(req, res);
@@ -52,7 +55,9 @@ public class RemoveUser {
 						rd.include(req, res);
 						out.print("<script type='text/javascript'>alert('User Not Deleted. Please Try Again');</script>");
 					}
-				}else {
+					stmt2.close();
+					stmt3.close();
+				}else if(user_id_output.equals(user_id) && role.equals("Admin")) {
 					stmt4 = con.createStatement();
 					int k = stmt4.executeUpdate("delete from verification where user_id = '"+user_id+"' ");
 					
@@ -67,12 +72,12 @@ public class RemoveUser {
 						rd.include(req, res);
 						out.print("<script type='text/javascript'>alert('User Not Deleted. Please Try Again');</script>");
 					}
+					stmt4.close();
+				}else {
+					
 				}
 			}
-				stmt.close();
-				stmt2.close();
-				stmt3.close();
-				stmt4.close();
+				stmt.close();				
 				con.close();
 				rs.close();				
 			}catch(Exception e) {

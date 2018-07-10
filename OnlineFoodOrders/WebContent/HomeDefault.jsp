@@ -8,9 +8,7 @@
 </head>
 <body>
 
-<a href="Login.jsp">Login</a>
-<a href="RegisterUser.jsp">Register User Only</a>
-<a href="UpdateUser.jsp">Update User Only</a>
+<%@include file="HeaderDefault.jsp" %>
 
 </body>
 </html>

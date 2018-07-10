@@ -8,7 +8,9 @@
 </head>
 <body>
 
+<%@include file="HeaderUser.jsp" %>
 <h1>Welcome User To Home</h1>
 
+<a href="RemoveUser.jsp" >Remove User</a>
 </body>
 </html>

@@ -7,8 +7,10 @@
 <title>Admin Home</title>
 </head>
 <body>
+<%@include file="HeaderAdmin.jsp" %>
 
-<h1>Welcome Admin To Home</h1>
-
+<script type="text/javascript">
+alert("Welcome Admin To Home");
+</script>
 </body>
 </html>

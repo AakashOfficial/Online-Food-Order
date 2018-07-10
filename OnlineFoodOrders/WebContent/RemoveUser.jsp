@@ -10,8 +10,10 @@
 
 <%@include file="HomeUser.jsp" %>
 
-<form action="removeUserByAdmin">
+<form action="removeUser">
 Enter Your Id : <input type="text" name="id" >
+<br>
+<input type="submit" value="Remove">
 </form>
 </body>
 </html>

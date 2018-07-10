@@ -7,6 +7,7 @@
 <title>Login Page</title>
 </head>
 <body>
+<%@include file="HeaderDefault.jsp" %>
 <h1>Login Here</h1>
 <form action="login" method="POST" >
 User ID - <input type="text" name="user_id" placeholder="Enter You User Name" /><br>
