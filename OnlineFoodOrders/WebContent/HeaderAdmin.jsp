@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Header</title>
 </head>
 <body>
-
+<a href="RemoveUser.jsp">Remove A User</a>
 </body>
 </html>
