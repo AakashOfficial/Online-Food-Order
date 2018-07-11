@@ -1,4 +1,4 @@
-package com.tyagi.servlet;
+/*package com.tyagi.servlet;
 
 import java.io.*;
 import java.sql.*;
@@ -84,4 +84,59 @@ public class FoodAdd extends HttpServlet {
 				}
 			}
 	}
-}
+}*/
+
+
+package com.tyagi.servlet;
+
+import java.io.*;
+import java.sql.*;
+import java.util.zip.*;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.connection.MyConnection;
+
+@WebServlet("/foodAdd")
+public class FoodAdd extends HttpServlet {
+
+	Connection con = null;
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+
+		PrintWriter out = res.getWriter();
+		
+			try {
+
+				con = MyConnection.getCon();
+				System.out.println("Connection Created");
+
+				String fname = req.getParameter("food_name");
+				String fcategory = req.getParameter("food_category");
+				String fprice = req.getParameter("food_price");
+				String fpath = req.getParameter("file");
+				File ff = new File("E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage/" + fpath);
+				
+				Statement stmt = con.createStatement();
+				int i=stmt.executeUpdate("insert into food(food_name,food_category,food_price,FOOD_IMAGE_PATH) values('"+fname+"','"+fcategory+"','"+fprice+"','"+ff+"')");
+			
+				if(i > 0) {
+					System.out.println("Food Is Entered");
+					RequestDispatcher rd =req.getRequestDispatcher("FoodAdd.jsp");
+					rd.include(req, res);
+				}else {
+					System.out.println("Food Not Inserted");
+					RequestDispatcher rd =req.getRequestDispatcher("FoodAdd.jsp");
+					rd.include(req, res);
+				}	
+				con.close();
+				stmt.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+				}
+			}
+	}

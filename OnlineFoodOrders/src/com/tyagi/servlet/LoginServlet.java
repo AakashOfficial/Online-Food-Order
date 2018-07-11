@@ -9,59 +9,43 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.connection.MyConnection;
+import com.dao.FoodDAO;
+import com.dao.FoodDAOImplementation;
+import com.model.User;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 
 	Connection con = null;
+	User u = new User();
 
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String name = req.getParameter("user_id");
-		String pass = req.getParameter("password");
+
 		PrintWriter out = res.getWriter();
-		try {
+		u.setUser_id(req.getParameter("user_id"));
+		u.setPassword(req.getParameter("password"));
 
-			con = MyConnection.getCon();
-			System.out.println("Connection Created");
-
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from verification where user_id='"+name+"'and password='"+pass+"'");
-			System.out.println("Data Retrived");
-			String dname = "";
-			String dpass = "";
-			String drole = "";
-			while (rs.next()) {
-				dname = rs.getString(1);
-				dpass = rs.getString(2);
-				drole = rs.getString(3);
-
-				System.out.println("Correct");
-
-				if (dname.equals(name) && dpass.equals(pass)) {
-					System.out.println("Checking Id and Password");
-					if (drole.equals("user") || drole.equals("User")) {
-						RequestDispatcher rd = req.getRequestDispatcher("HomeUser.jsp");
-						rd.forward(req, res);
-						System.out.print("User Sucessfully logged in");
-						System.out.println("User Name is : " + dname);
-					} else {
-						RequestDispatcher rd = req.getRequestDispatcher("HomeAdmin.jsp");
-						rd.forward(req, res);
-						System.out.println("Admin Sucessfully logged in");
-						System.out.println("User Name is : " + dname);
-					}
-
-				} else {
-					RequestDispatcher rd = req.getRequestDispatcher("LoginFailure.jsp");
-					rd.include(req, res);
-					out.print("Wrong password");
-				}
+		FoodDAO myDAO = new FoodDAOImplementation();
+		boolean result = myDAO.validateUser(u);
+		String resultRole = myDAO.giveRole(u);
+		if (result == true) {
+			System.out.println("Checking Id and Password");
+			if (resultRole.equals("User")) {
+				RequestDispatcher rd = req.getRequestDispatcher("HomeUser.jsp");
+				rd.forward(req, res);
+				System.out.print("User Sucessfully logged in");
+				System.out.println("User Name is : " + u.getName());
+			} else {
+				RequestDispatcher rd = req.getRequestDispatcher("HomeAdmin.jsp");
+				rd.forward(req, res);
+				System.out.println("Admin Sucessfully logged in");
+				System.out.println("User Name is : " + u.getName());
 			}
-			MyConnection.Close(con, rs, stmt);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
+		} else {
+			RequestDispatcher rd = req.getRequestDispatcher("LoginFailure.jsp");
+			rd.include(req, res);
+			out.print("Wrong password");
+		}
 	}
 }

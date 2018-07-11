@@ -4,4 +4,4 @@ create table user(user_id varchar(30),password varchar(30),name varchar(30),addr
 create table verification(user_id varchar(30),password varchar(30),role varchar(10));
 insert into verification values('1','1','Admin');
 
-create table food(food_name varchar(30),food_category varchar(30),food_price varchar(30),food_image_path varchar(30));
+create table food(food_name varchar(30),food_category varchar(30),food_price varchar(30),food_type varchar(20),food_desc varchar(30),food_image_path varchar(30));

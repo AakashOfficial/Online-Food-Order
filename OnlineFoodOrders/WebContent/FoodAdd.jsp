@@ -9,7 +9,7 @@
 
 	<%@include file="HeaderAdmin.jsp"%>
 	
-	<form enctype="multipart/form-data" action="foodAdd" method="post">
+	<form action="foodAdd" method="post">
 		<table align="center" border="2px">
 			<tr>
 				<td>Food Name</td>

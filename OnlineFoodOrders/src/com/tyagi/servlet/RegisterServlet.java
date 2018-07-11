@@ -12,33 +12,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.connection.MyConnection;
+import com.dao.FoodDAO;
+import com.dao.FoodDAOImplementation;
+import com.model.User;
 
 @WebServlet("/registerUser")
 public class RegisterServlet  extends HttpServlet {
 
   Connection con=null;
- 
+  User u = new User();
+  
   public void doPost(HttpServletRequest req,HttpServletResponse res)throws ServletException,IOException {
 	  res.setContentType("text/html");
 	  PrintWriter out=res.getWriter();
-
-	  String userid = req.getParameter("user_id");
-	  String password = req.getParameter("password");
-	  String name = req.getParameter("name");
-	  String address = req.getParameter("address");
-	  String mobile_no = req.getParameter("mobile_no");
-	  String email = req.getParameter("email_id");
-	  String role = "User";
-		try {
-			con = MyConnection.getCon();
-			System.out.println("Connection Created");
-
-			Statement stmt = con.createStatement();
-			Statement stmt2 = con.createStatement();
-			int i = stmt.executeUpdate("insert into user values('"+userid+"','"+password+"','"+name+"','"+address+"','"+mobile_no+"','"+email+"','"+role+"')");
-			int j = stmt2.executeUpdate("insert into verification values('"+userid+"','"+password+"','"+role+"')");
-			if(i>=1 && j>=1) {
-				System.out.println("User Is Registered with User ID : " + userid + "  and Username is : " + name);
+      
+	  u.setUser_id(req.getParameter("user_id"));
+	  u.setPassword(req.getParameter("password"));
+	  u.setName(req.getParameter("name"));
+	  u.setAddress(req.getParameter("address"));
+	  u.setMobile_no(req.getParameter("mobile_no"));
+	  u.setEmail_id(req.getParameter("email_id"));
+	  u.setRole("User");
+	  
+	  FoodDAO foodDAO = new FoodDAOImplementation();
+	  boolean result =foodDAO.addUser(u);
+	  if(result == true) {
+				System.out.println("User Is Registered with User ID : " + u.getUser_id() + "  and Username is : " + u.getName());
 				RequestDispatcher rd =req.getRequestDispatcher("RegisterUser.jsp");
 				rd.include(req, res);
 				out.print("<a href='Login.jsp'>User Successfully Registered. Please Login Here</a>");
@@ -47,11 +46,6 @@ public class RegisterServlet  extends HttpServlet {
 				rd.include(req, res);
 				out.print("User Not Registered Successfully. Please Try Again");
 			}
-			con.close();
-			stmt.close();
-			stmt2.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	  out.close();
 	}
 }
