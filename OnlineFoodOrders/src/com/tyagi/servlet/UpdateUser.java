@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.connection.MyConnection;
 import com.dao.FoodDAO;
@@ -27,7 +28,11 @@ public class UpdateUser extends HttpServlet {
 
 		System.out.println("In \" updateUser \" Servlet");
 		PrintWriter out = res.getWriter();
-		u.setUser_id_old(req.getParameter("user_id_old"));
+		HttpSession hs = req.getSession();
+		String s1 =(String)hs.getAttribute("UID");
+		System.out.println("User Logged In " + s1);
+		
+		u.setUser_id_old((String)hs.getAttribute("UID"));
 		u.setUser_id(req.getParameter("user_id"));
 		u.setPassword(req.getParameter("password"));
 		u.setEmail_id(req.getParameter("email_id"));
