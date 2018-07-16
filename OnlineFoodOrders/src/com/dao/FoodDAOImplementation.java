@@ -52,6 +52,33 @@ public class FoodDAOImplementation implements FoodDAO {
 		return false;
 	}
 	
+	@Override
+	public String giveRole(User u) {
+		try {
+			String roleQuery = "select * from verification where user_id=('" + u.getUser_id() + "')and password=('"	+ u.getPassword() + "')";
+		    stmt = con.createStatement();
+			rs = stmt.executeQuery(roleQuery);
+			System.out.println("Data Retrived");
+			String drole = "";
+			while (rs.next()) {
+				drole = rs.getString(3);
+				
+				System.out.println("Correct");
+				if (drole.equals("User")) {
+					return drole;
+				}else {
+					return drole;
+				}
+			}
+			stmt.close();
+			rs.close();
+			con.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "";
+	}
 
+	
 
 }
