@@ -9,6 +9,8 @@ public class Food implements Serializable {
 	private String food_price;
 	private String food_type;
 	private String food_desc;
+	private String food_path;
+	private String food_id;
 	
 	public String getFood_name() {
 		return food_name;
@@ -40,11 +42,24 @@ public class Food implements Serializable {
 	public void setFood_desc(String food_desc) {
 		this.food_desc = food_desc;
 	}
+	public String getFood_path() {
+		return food_path;
+	}
+	public void setFood_path(String food_path) {
+		this.food_path = food_path;
+	}
+	public String getFood_id() {
+		return food_id;
+	}
+	public void setFood_id(String food_id) {
+		this.food_id = food_id;
+	}
 	
 	@Override
 	public String toString() {
 		return "Food [food_name=" + food_name + ", food_category=" + food_category + ", food_price=" + food_price
-				+ ", food_type=" + food_type + ", food_desc=" + food_desc + "]";
+				+ ", food_type=" + food_type + ", food_desc=" + food_desc + ", food_path=" + food_path + ", food_id="
+				+ food_id + "]";
 	}
 	
 }
