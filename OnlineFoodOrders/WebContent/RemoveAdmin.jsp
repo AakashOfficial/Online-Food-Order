@@ -10,18 +10,16 @@
 </head>
 
 <body>
-<form id="form1" name="form1" method="post" action="">
+<form id="form1" name="form1" method="post" action="removeUser">
   <table width="365" height="124" border="1" cellpadding="5">
     <caption align="top">
-      Add Admin
+      Remove Admin
     </caption>
     <tr>
       <td width="160">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter User Id </td>
-    <td width="173" >&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="textfield" /></th>    </tr>
-    <tr>
-      <td height="38"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enter Password </td>
-      <td>&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="textfield2" /></td>
+    <td width="173" >&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="textfield" /></th>  
     </tr>
+    
     <tr>
       <td height="36" colspan="2">&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="Submit" value="Submit" /></td>
