@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.FoodDAO;
 import com.dao.FoodDAOImplementation;
@@ -29,6 +30,9 @@ public class LoginServlet extends HttpServlet {
 		boolean result = myDAO.validateUser(u);
 		String resultRole = myDAO.giveRole(u);
 		if (result == true) {
+			HttpSession hs = req.getSession();
+			hs.setAttribute("UID", u.getUser_id());
+			
 			System.out.println("Checking Id and Password");
 			if (resultRole.equals("User")) {
 				RequestDispatcher rd = req.getRequestDispatcher("HomeUser.jsp");
