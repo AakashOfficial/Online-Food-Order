@@ -221,51 +221,7 @@ public class FoodDAOImplementation implements FoodDAO {
 		}
 		return false;
 	}
-@Override
-	public boolean addFood(Food f) {		
-		//File ff = new File("E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage/" + f.getFood_path());
-		//String path ="E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage\\";
-		String foodQuery = "insert into food values('"+f.getFood_id()+"','"+f.getFood_name()+"','"+f.getFood_category()+"','"+f.getFood_price()+"','"+f.getFood_type()+"','"+f.getFood_desc()+"','"+f.getFood_path()+"')";
-		String checkQuery = "select * from food where food_name = '"+f.getFood_id()+"'"; 
-		try {
-			stmt = con.createStatement();
-			stmt2 = con.createStatement();
-			rs = stmt.executeQuery(checkQuery);
-			while(rs.next()) {
-				return false;
-			}
-			int i = stmt2.executeUpdate(foodQuery);
-			if(i ==1) {
-				return true;
-			}
-		    stmt.close();
-		    stmt2.close();
-		    rs.close();
-		    con.close();
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
 
-	@Override
-	public boolean removeFood(Food f) {
-		String removeFoodQuery = "delete from food where food_name = '"+f.getFood_name()+"' && food_category = '"+f.getFood_category()+"' && food_type = '"+f.getFood_type()+"' ";
-		
-		try {
-			stmt = con.createStatement();
-			int i = stmt.executeUpdate(removeFoodQuery);
-			if(i == 1) {
-				return true;
-			}
-			con.close();
-		    stmt.close();	
-		}catch(Exception e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
 
-	
 	
 }
