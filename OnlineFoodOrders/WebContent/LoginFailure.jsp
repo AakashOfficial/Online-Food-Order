@@ -8,6 +8,8 @@
 </head>
 <body>
 
+<%@include file="Login.jsp" %>
+
 <script type="text/javascript">
 alert("Id or Password Is Incorrect. Please Try Again");
 </script>
