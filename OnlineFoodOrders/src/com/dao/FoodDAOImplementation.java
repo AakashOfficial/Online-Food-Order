@@ -223,5 +223,34 @@ public class FoodDAOImplementation implements FoodDAO {
 	}
 
 
+@Override
+	public boolean addFood(Food f) {		
+		//File ff = new File("E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage/" + f.getFood_path());
+		//String path ="E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage\\";
+		String foodQuery = "insert into food values('"+f.getFood_id()+"','"+f.getFood_name()+"','"+f.getFood_category()+"','"+f.getFood_price()+"','"+f.getFood_type()+"','"+f.getFood_desc()+"','"+f.getFood_path()+"')";
+		String checkQuery = "select * from food where food_name = '"+f.getFood_id()+"'"; 
+		try {
+			stmt = con.createStatement();
+			stmt2 = con.createStatement();
+			rs = stmt.executeQuery(checkQuery);
+			while(rs.next()) {
+				return false;
+			}
+			int i = stmt2.executeUpdate(foodQuery);
+			if(i ==1) {
+				return true;
+			}
+		    stmt.close();
+		    stmt2.close();
+		    rs.close();
+		    con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	
+
 	
 }
