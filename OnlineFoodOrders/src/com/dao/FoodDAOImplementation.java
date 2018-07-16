@@ -79,6 +79,27 @@ public class FoodDAOImplementation implements FoodDAO {
 		return "";
 	}
 
+	@Override
+	public boolean addUser(User u) {
+		String userQuery = "insert into user values('"+u.getUser_id()+"','"+u.getPassword()+"','"+u.getName()+"','"+u.getAddress()+"','"+u.getMobile_no()+"','"+u.getEmail_id()+"','"+u.getRole()+"')";
+		String verificationQuery = "insert into verification values('"+u.getUser_id()+"','"+u.getPassword()+"','"+u.getRole()+"')";
+		try {
+			stmt = con.createStatement();
+			stmt2 = con.createStatement();
+			int i = stmt.executeUpdate(userQuery);
+			int j = stmt2.executeUpdate(verificationQuery);
+			if(i>=1 && j>=1) {
+				return true;
+			}
+			stmt.close();
+			stmt2.close();
+			con.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 
 }
