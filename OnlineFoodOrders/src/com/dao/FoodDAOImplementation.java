@@ -250,6 +250,92 @@ public class FoodDAOImplementation implements FoodDAO {
 		return false;
 	}
 
+	@Override
+	public boolean removeFood(Food f) {
+		String removeFoodQuery = "delete from food where food_name = '"+f.getFood_name()+"' && food_category = '"+f.getFood_category()+"' && food_type = '"+f.getFood_type()+"' ";
+		
+		try {
+			stmt = con.createStatement();
+			int i = stmt.executeUpdate(removeFoodQuery);
+			if(i == 1) {
+				return true;
+			}
+			con.close();
+		    stmt.close();	
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean updateFood(Food f) {
+		String foodCheck = "select * from food where food_id = '"+f.getFood_id()+"' ";
+		String foodUpdateQuery = "update food set food_name = '"+f.getFood_name()+"', food_category = '"+f.getFood_category()+"',food_price = '"+f.getFood_price()+",food_type = '"+f.getFood_type()+"',food_desc = '"+f.getFood_desc()+"',food_image_path = '"+f.getFood_path()+"' where food_id = '"+f.getFood_id()+"'";
+		String name_output, category_output, price_output, type_output, desc_output, path_output;
+		try {
+			stmt = con.createStatement();
+			stmt2 = con.createStatement();
+			rs = stmt.executeQuery(foodCheck);
+			while(rs.next()) {
+				name_output = rs.getString(2);
+				category_output = rs.getString(3);
+				price_output = rs.getString(4);
+				type_output = rs.getString(5);
+				desc_output = rs.getString(6);
+				path_output = rs.getString(7);
+				
+				if(f.getFood_name().length() > 0) {
+					System.out.println("Admin Is Enter Something");
+				}else {
+					f.setFood_name(name_output);
+				}
+				
+				if(f.getFood_category().length() > 0) {
+					System.out.println("Admin Is Enter Something");
+				}else {
+					f.setFood_category(category_output);
+				}
+				
+				if(f.getFood_price().length() > 0) {
+					System.out.println("Admin Is Enter Something");
+				}else {
+					f.setFood_price(price_output);
+				}
+				
+				if(f.getFood_type().length() > 0) {
+					System.out.println("Admin Is Enter Something");
+				}else {
+					f.setFood_type(type_output);
+				}
+				
+				if(f.getFood_desc().length() > 0) {
+					System.out.println("Admin Is Enter Something");
+				}else {
+					f.setFood_desc(desc_output);
+				}
+				
+				if(f.getFood_path().length() > 0) {
+					System.out.println("Admin is Enter Something");
+				}else {
+					f.setFood_path(path_output);
+				}
+				
+				int i = stmt2.executeUpdate(foodUpdateQuery);
+				if(i == 1) {
+					return true;
+				}
+			}
+		 con.close();
+		 stmt.close();
+		 stmt2.close();
+		 rs.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 	
 
 	
