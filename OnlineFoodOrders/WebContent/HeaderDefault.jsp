@@ -33,7 +33,7 @@
             <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
                 <li role="presentation"><a href="RegisterUser.jsp" role="menuitem">Register</a></li>
                 <li role="presentation"><a href="Login.jsp" role="menuitem">Login</a></li>
-                <li role="presentation"><a href="#" role="menuitem">View All Food</a></li>
+                <li role="presentation"><a href="showFood" role="menuitem">View All Food</a></li>
             </ul>
         </li>
         
