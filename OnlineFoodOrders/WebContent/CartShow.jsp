@@ -31,7 +31,7 @@
                 <th>Image</th>
             </tr>
             <c:forEach var="cart" items="${cartlist.rows}">
-                <tr><form action="orderConfirm" method="POST">
+                <tr><form action="cartConfirmOrRemove" method="POST">
                     <input type="hidden" value="${cart.food_id}" name="food_ids" >
                     <td><c:out value="${cart.user_id}" /></td>
                     <td><c:out value="${cart.food_id}" /></td>
@@ -40,9 +40,9 @@
                     <td><c:out value="${cart.food_price}" /></td>
                     <td><c:out value="${cart.food_type}" /></td>
                     <td><c:out value="${cart.food_desc}" /></td>
-                    <td><a href="orderConfirm"><img src="${pageContext.request.contextPath}/resources/${cart.food_image_path}" alt="Product Image" height="213" width="320"> </a> </td>
+                    <td><img src="${pageContext.request.contextPath}/resources/${cart.food_image_path}" alt="Product Image" height="213" width="320"> </td>
                     <td><input type="submit" name="submitbtn" value="Order Confirm">
-                        <a href="removeFromCart"><br>Remove From Cart</a>
+                        <input type="submit" name="submitbtn" value="Remove From Cart">                        
                     </td>
                     </form>
                 </tr>

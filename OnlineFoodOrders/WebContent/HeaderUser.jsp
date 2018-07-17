@@ -33,8 +33,8 @@
         <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Account Settings <b class="caret"></b></a>
             <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
                 <li role="presentation"><a href="UpdateUser.jsp" role="menuitem">Update Information</a></li>
-                <li role="presentation"><a href="#" role="menuitem">Show Your Cart</a></li>
-                <li role="presentation"><a href="#" role="menuitem">Show All Products</a></li>
+                <li role="presentation"><a href="CartShow.jsp" role="menuitem">Show Your Cart</a></li>
+                <li role="presentation"><a href="showFoodUser" role="menuitem">Show All Food</a></li>
                 <li role="presentation"><a href="RemoveUser.jsp" role="menuitem">Delete Your Account</a></li>
             </ul>
         </li>

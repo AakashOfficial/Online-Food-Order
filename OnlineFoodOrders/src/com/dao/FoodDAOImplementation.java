@@ -390,4 +390,19 @@ public class FoodDAOImplementation implements FoodDAO {
 		return false;
 	}
 
+	@Override
+	public boolean removeFromCart(User u, Food f) {
+		String removeCartQuery = "delete from cart where user_id = '"+u.getUser_id()+"' and food_id = '"+f.getFood_id()+"' ";
+		try {
+			stmt = con.createStatement();
+			int i = stmt.executeUpdate(removeCartQuery);
+			if(i == 1) {
+				return true;
+			}	
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }
