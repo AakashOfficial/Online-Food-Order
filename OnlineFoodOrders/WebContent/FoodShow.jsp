@@ -38,7 +38,7 @@
                     <td><c:out value="${food.food_price}" /></td>
                     <td><c:out value="${food.food_type}" /></td>
                     <td><c:out value="${food.food_desc}" /></td> 
-                    <td><a href="addToCart"><img src="${pageContext.request.contextPath}/resources/${food.food_image_path}" alt="Product Image" height="213" width="320"> </a> </td>
+                    <td><a href="Login.jsp"><img src="${pageContext.request.contextPath}/resources/${food.food_image_path}" alt="Product Image" height="213" width="320"> </a> </td>
                     <td><input type="submit" name="submitbtn" value="Add To Cart"></td>
                     </form>
                 </tr>
