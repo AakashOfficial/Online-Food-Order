@@ -25,7 +25,7 @@ public class FoodAdd extends HttpServlet {
 
 		PrintWriter out = res.getWriter();
 		f.setFood_name(req.getParameter("food_name"));
-		f.setFood_category("food_category");
+		f.setFood_category(req.getParameter("food_category"));
 		f.setFood_price(req.getParameter("food_price"));
 		f.setFood_type(req.getParameter("food_type"));
 		f.setFood_desc(req.getParameter("food_desc"));

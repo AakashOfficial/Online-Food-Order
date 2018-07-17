@@ -44,9 +44,7 @@ public class FoodDAOImplementation implements FoodDAO {
 				return true;
 			}
 		}
-		stmt.close();
-		rs.close();
-		con.close();
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -71,9 +69,7 @@ public class FoodDAOImplementation implements FoodDAO {
 					return drole;
 				}
 			}
-			stmt.close();
-			rs.close();
-			con.close();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
