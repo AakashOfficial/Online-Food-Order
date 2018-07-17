@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.ArrayList;
+
 import com.model.Food;
 import com.model.User;
 
@@ -14,7 +16,6 @@ public interface FoodDAO {
 	public boolean removeFood(Food f);
 	public boolean removeFoodById(Food f);
 	public boolean updateFood(Food f);
-	public boolean showFood(Food f);
 	public boolean addToCart(User u,Food f);
 	
 }

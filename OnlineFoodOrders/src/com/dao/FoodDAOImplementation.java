@@ -4,6 +4,7 @@ import java.io.File;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.connection.MyConnection;
 import com.model.Food;
@@ -222,8 +223,7 @@ public class FoodDAOImplementation implements FoodDAO {
 		return false;
 	}
 
-
-@Override
+	@Override
 	public boolean addFood(Food f) {		
 		//File ff = new File("E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage/" + f.getFood_path());
 		//String path ="E:\\My Project\\OnlineFoodOrders\\WebContent\\FoodImage\\";
@@ -336,7 +336,27 @@ public class FoodDAOImplementation implements FoodDAO {
 		return false;
 	}
 
-	
+	@Override
+	public boolean removeFoodById(Food f) {
+		String removeQueryID = "delete from food where foof_id = '"+f.getFood_id()+"' ";
+		try {
+			stmt = con.createStatement();
+			int i = stmt.executeUpdate(removeQueryID);
+			if(i == 1) {
+				return true;
+			}
+			con.close();
+			stmt.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return false;
+	}
 
-	
+	@Override
+	public boolean addToCart(User u, Food f) {
+		
+		return false;
+	}
+
 }
