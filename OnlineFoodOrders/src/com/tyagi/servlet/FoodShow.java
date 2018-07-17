@@ -15,12 +15,10 @@ import com.model.Food;
 
 @WebServlet("/showFood")
 public class FoodShow extends HttpServlet {
-	
-	FoodDAO foodDAO = new FoodDAOImplementation();
-	Food food = new Food();
+
 	protected void service(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException {
 			
-		request.getRequestDispatcher("/Student.jsp").forward(request, response);
+		request.getRequestDispatcher("/FoodShow.jsp").forward(request, response);
 		
 	}
 	
