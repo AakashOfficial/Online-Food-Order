@@ -17,5 +17,6 @@ public interface FoodDAO {
 	public boolean removeFoodById(Food f);
 	public boolean updateFood(Food f);
 	public boolean addToCart(User u,Food f);
+	public boolean removeFromCart(User u,Food f);
 	
 }
