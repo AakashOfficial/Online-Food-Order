@@ -22,7 +22,7 @@ public class FoodDAOImplementation implements FoodDAO {
 	}
 
 	Statement stmt, stmt2, stmt3, stmt4;
-	ResultSet rs;
+	ResultSet rs,rs2,rs3;
 	   
 	@Override
 	public boolean validateUser(User u) {
@@ -355,7 +355,42 @@ public class FoodDAOImplementation implements FoodDAO {
 
 	@Override
 	public boolean addToCart(User u, Food f) {
-		
+		String userQuery = "select * from cart where user_id = '"+u.getUser_id_old()+"' and food_id = '"+f.getFood_id()+"' ";
+		String foodQuery = "select * from food where food_id = '"+f.getFood_id()+"' ";
+		String cartQuery = "insert into cart values('"+u.getUser_id()+"','"+f.getFood_id()+"','"+f.getFood_name()+"','"+f.getFood_category()+"','"+f.getFood_price()+"','"+f.getFood_type()+"','"+f.getFood_desc()+"','"+f.getFood_path()+"')";
+		try {
+			stmt = con.createStatement();
+			stmt2 = con.createStatement();
+			stmt3 = con.createStatement();
+			rs= stmt.executeQuery(userQuery);
+			while(rs.next()) {
+				return false;
+			}
+			
+			rs2 = stmt2.executeQuery(foodQuery);
+			while(rs2.next()) {
+				f.setFood_id(rs2.getString(1));
+				f.setFood_name(rs2.getString(2));
+				f.setFood_category(rs2.getString(3));
+				f.setFood_price(rs2.getString(4));
+				f.setFood_type(rs2.getString(5));
+				f.setFood_desc(rs2.getString(6));
+				f.setFood_path(rs2.getString(7));
+				
+				int i = stmt3.executeUpdate(cartQuery);
+				if(i == 1){
+					return true;
+				}
+			}
+			stmt.close();
+			stmt2.close();
+			stmt3.close();
+			rs.close();
+			rs2.close();
+			con.close();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
