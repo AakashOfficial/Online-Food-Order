@@ -29,6 +29,7 @@
         <li><a href="ContactUs.jsp">Contact Us</a></li>
         <li><a href="AboutUs.jsp">About Us</a></li>
         <li><a href="Feedback.jsp">Feed Back</a></li>
+        <li><a href="showFoodUser">Show Food</a></li>
         <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Account Settings <b class="caret"></b></a>
             <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
                 <li role="presentation"><a href="UpdateUser.jsp" role="menuitem">Update Information</a></li>
