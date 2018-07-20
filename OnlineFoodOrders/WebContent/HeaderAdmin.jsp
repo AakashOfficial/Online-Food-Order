@@ -19,12 +19,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Online Food Order</a>
+      <a class="navbar-brand" href="HomeAdmin.jsp">Online Food Order</a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
        
         <li><a href="HomeAdmin.jsp">Home</a></li>
+        <li><a href="logout">Log Out</a></li>
         <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Settings <b class="caret"></b></a>
             <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
                 <li role="presentation"><a href="RegisterAdminUser.jsp" role="menuitem">Add Admin</a></li>
