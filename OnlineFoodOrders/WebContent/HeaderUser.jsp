@@ -26,8 +26,8 @@
        
         <li><a href="UserHome.jsp">Home</a></li>
         <li><a href="logout">Logout</a></li>
-        <li><a href="ContactUs.jsp">Contact Us</a></li>
-        <li><a href="AboutUs.jsp">About Us</a></li>
+        <li><a href="ContactUsU.jsp">Contact Us</a></li>
+        <li><a href="AboutUsU.jsp">About Us</a></li>
         <li><a href="Feedback.jsp">Feed Back</a></li>
         <li><a href="showFoodUser">Show Food</a></li>
         <li class="dropdown "><a href="#" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">Account Settings <b class="caret"></b></a>
