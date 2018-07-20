@@ -6,41 +6,41 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <title>Food List</title>
 </head>
 <body>
     <%@include file="HeaderUser.jsp" %>
-    
+    <div align="center">
      <sql:setDataSource var = "myDS" driver = "com.mysql.jdbc.Driver"
          url = "jdbc:mysql://localhost:3306/online_food_order"
          user = "root"  password = ""/>
       <sql:query dataSource="${myDS}" sql="select * from cart" var="cartlist" >
     </sql:query>
     <div align="center">
-        <table border="1" cellpadding="5" style="border-collapse:collapse;">
+        <table border="1" cellpadding="5" cellspacing="5" style="border-collapse:collapse;">
             <caption><h1>List of Food In Cart</h1></caption>
             <tr>
-                <th>User ID</th>
-                <th>Food ID</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Type</th>
-                <th>Description</th>
-                <th>Image</th>
+                <th>&nbsp;&nbsp;&nbsp;User ID&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Food ID&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Category&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Price&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Type&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Description&nbsp;&nbsp;&nbsp;</th>
+                <th>&nbsp;&nbsp;&nbsp;Image&nbsp;&nbsp;&nbsp;</th>
+                <th></th>
             </tr>
             <c:forEach var="cart" items="${cartlist.rows}">
                 <tr><form action="cartConfirmOrRemove" method="POST">
                     <input type="hidden" value="${cart.food_id}" name="food_ids" >
-                    <td><c:out value="${cart.user_id}" /></td>
-                    <td><c:out value="${cart.food_id}" /></td>
-                    <td><c:out value="${cart.food_name}" /></td>
-                    <td><c:out value="${cart.food_category}" /></td>
-                    <td><c:out value="${cart.food_price}" /></td>
-                    <td><c:out value="${cart.food_type}" /></td>
-                    <td><c:out value="${cart.food_desc}" /></td>
-                    <td><img src="${pageContext.request.contextPath}/resources/${cart.food_image_path}" alt="Product Image" height="213" width="320"> </td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.user_id}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_id}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_name}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_category}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_price}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_type}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<c:out value="${cart.food_desc}" />&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;<img src="${pageContext.request.contextPath}/resources/${cart.food_image_path}" alt="Product Image" height="213" width="320"> </td>
                     <td><input type="submit" name="submitbtn" value="Order Confirm">
                         <input type="submit" name="submitbtn" value="Remove From Cart">                        
                     </td>
@@ -49,5 +49,9 @@
             </c:forEach>
         </table>
     </div>
+   </div>
+   <div>
+   <%@include file="FooterUser.jsp" %>
+   </div> 
 </body>
 </html>
