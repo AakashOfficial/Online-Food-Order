@@ -33,6 +33,6 @@
 	</center>
 	
 <%-- <%@include file="FooterDefault.jsp" %> --%>
+	
 </body>
 </html>
-
