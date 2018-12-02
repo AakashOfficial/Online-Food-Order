@@ -44,4 +44,3 @@ public class AddToCart extends HttpServlet {
 			out.println("<script>alert('Food Is Not Added To Cart. Please Try Again Later');</script>");
 		}
 	}
-}
