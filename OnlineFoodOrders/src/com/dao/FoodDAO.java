@@ -20,3 +20,4 @@ public interface FoodDAO {
 	public boolean removeFromCart(User u,Food f);
 	
 }
+
