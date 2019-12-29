@@ -9,3 +9,4 @@ create table food(food_id varchar(20),food_name varchar(30),food_category varcha
 create table cart(user_id varchar(30),food_id varchar(30),food_name varchar(30),food_category varchar(30),food_price varchar(10),food_type varchar(20),food_desc varchar(100),food_image_path varchar(100));
 
 
+
