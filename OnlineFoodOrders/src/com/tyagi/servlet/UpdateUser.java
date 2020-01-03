@@ -25,7 +25,6 @@ public class UpdateUser extends HttpServlet {
 	User u = new User();
 
 	public void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
 		System.out.println("In \" updateUser \" Servlet");
 		PrintWriter out = res.getWriter();
 		HttpSession hs = req.getSession();
