@@ -20,6 +20,7 @@ public class RegisterAdmin extends HttpServlet {
 	Connection con = null;
 
 	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		
 		res.setContentType("text/html");
 		PrintWriter out = res.getWriter();
 		String userid = req.getParameter("user_id");
