@@ -50,8 +50,8 @@
     </div>
 </div>
 
-<div>
-<%@include file="FooterUser.jsp" %>
-</div>
+    <div>
+        <%@include file="FooterUser.jsp" %>
+    </div>
 </body>
 </html>
