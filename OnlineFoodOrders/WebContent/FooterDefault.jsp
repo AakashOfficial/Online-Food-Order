@@ -79,7 +79,7 @@ ul, li {
 			<div class="row">
 				<div class="col-md text-center">
 
-					© 2010-
+					Â© 2010-
 					<script language="JavaScript" type="text/javascript">
 						now = new Date
 						theYear = now.getYear()
@@ -87,7 +87,6 @@ ul, li {
 							theYear = theYear + 1900
 						document.write(theYear)
 					</script>
-
 				</div>
 	</footer>
 </body>
