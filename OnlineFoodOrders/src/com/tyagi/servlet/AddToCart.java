@@ -45,4 +45,3 @@ public class AddToCart extends HttpServlet {
 		}
 	}
 }
-
