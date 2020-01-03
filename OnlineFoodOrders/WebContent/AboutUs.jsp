@@ -25,8 +25,8 @@
 </center>
 </div>
 
-<div>
- <%@include file="FooterDefault.jsp" %>
-</div>
+    <div>
+        <%@include file="FooterDefault.jsp" %>
+    </div>
 </body>
 </html>
