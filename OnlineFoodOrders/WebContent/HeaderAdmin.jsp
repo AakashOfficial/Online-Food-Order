@@ -42,7 +42,6 @@
                 <li role="presentation"><a href="#" role="menuitem">Remove Food Items</a></li>
                 <li role="presentation"><a href="#" role="menuitem">Add Food Category</a></li>
                 <li role="presentation"><a href="#" role="menuitem">Remove Food category</a></li>
-             
             </ul>
         </li>             
       </ul>
