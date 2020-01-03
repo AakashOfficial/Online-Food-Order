@@ -11,9 +11,9 @@
 	
 	<form action="foodAdd" method="post">
 		<table align="center" border="2px">
-		    <tr>
-			   <td>Food ID</td>
-			   <td><input type="text" name="food_id" placeholder="Enter Food ID"></td>
+		    	<tr>
+				   <td>Food ID</td>
+				   <td><input type="text" name="food_id" placeholder="Enter Food ID"></td>
 			</tr>
 			<tr>
 				<td>Food Name</td>
