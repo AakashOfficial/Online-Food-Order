@@ -21,7 +21,7 @@ public class FoodUpdate extends HttpServlet {
 	FoodDAO foodDAO = new FoodDAOImplementation();
 	
 	protected void service(HttpServletResponse res,HttpServletRequest req) throws ServletException,IOException {
-		PrintWriter out = res.getWriter();
+		PrintWriter out = res.getWriter() ;
 		
 		f.setFood_id(req.getParameter("food_id"));
 		f.setFood_name(req.getParameter("food_name"));

@@ -46,7 +46,6 @@ public class FoodAdd extends HttpServlet {
 			RequestDispatcher rd = req.getRequestDispatcher("FoodAdd.jsp");
 			rd.include(req, res);
 		}
-		
 		out.close();
 	}
 }

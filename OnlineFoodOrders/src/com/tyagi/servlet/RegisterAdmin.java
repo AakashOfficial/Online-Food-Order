@@ -24,7 +24,7 @@ public class RegisterAdmin extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		String userid = req.getParameter("user_id");
 		String password = req.getParameter("password");
-		String role = "Admin";
+		String role = "Admin" ;
 		try {
 			con = MyConnection.getCon();
 			System.out.println("Connection Created");

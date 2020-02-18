@@ -61,5 +61,4 @@ public class Food implements Serializable {
 				+ ", food_type=" + food_type + ", food_desc=" + food_desc + ", food_path=" + food_path + ", food_id="
 				+ food_id + "]";
 	}
-	
 }

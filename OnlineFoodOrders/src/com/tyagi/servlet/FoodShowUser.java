@@ -16,5 +16,4 @@ public class FoodShowUser extends HttpServlet {
 		request.getRequestDispatcher("/FoodShowUser.jsp").forward(request, response);
 		
 	}
-
 }

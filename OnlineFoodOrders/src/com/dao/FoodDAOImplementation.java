@@ -128,7 +128,6 @@ public class FoodDAOImplementation implements FoodDAO {
 					}
 				}
 			}
-			
 			stmt.close();
 			stmt2.close();
 			stmt3.close();
@@ -404,5 +403,4 @@ public class FoodDAOImplementation implements FoodDAO {
 		}
 		return false;
 	}
-
 }

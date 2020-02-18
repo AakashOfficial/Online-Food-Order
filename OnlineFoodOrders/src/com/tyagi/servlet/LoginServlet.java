@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter out = res.getWriter();
 		u.setUser_id(req.getParameter("user_id"));
 		u.setPassword(req.getParameter("password"));
-
 		FoodDAO myDAO = new FoodDAOImplementation();
 		boolean result = myDAO.validateUser(u);
 		String resultRole = myDAO.giveRole(u);
